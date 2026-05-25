@@ -1,0 +1,79 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+plugins {
+    id "com.android.library"
+    id "org.jetbrains.kotlin.android"
+}
+
+def apprainierPluginDir = projectDir
+
+android {
+    namespace "com.apprainier.reactnative"
+    compileSdk 36
+
+    defaultConfig {
+        minSdk 24
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+}
+
+repositories {
+    maven { url = uri("${apprainierPluginDir}/repo") }
+    google()
+    mavenCentral()
+}
+
+rootProject.allprojects {
+    repositories {
+        maven { url = uri("${apprainierPluginDir}/repo") }
+    }
+}
+
+dependencies {
+    implementation("com.facebook.react:react-android")
+    implementation("com.apprainier:apprainier-android-sdk:1.0.0")
+
+    implementation("io.appwrite:sdk-for-android:11.4.0")
+    implementation("com.google.code.gson:gson:2.13.2")
+    implementation("com.google.firebase:firebase-messaging-ktx:24.1.0")
+    implementation("io.coil-kt:coil:2.5.0")
+    implementation("io.coil-kt:coil-compose:2.5.0")
+    implementation("io.coil-kt:coil-svg:2.5.0")
+    implementation("com.google.accompanist:accompanist-pager:0.30.1")
+    implementation("com.google.accompanist:accompanist-pager-indicators:0.30.1")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation("com.google.android.material:material:1.12.0")
+    implementation("androidx.core:core-ktx:1.13.1")
+    implementation("androidx.appcompat:appcompat:1.7.0")
+    implementation("androidx.activity:activity-compose:1.8.2")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.9.4")
+    implementation("androidx.lifecycle:lifecycle-process:2.9.4")
+    implementation("androidx.navigation:navigation-runtime-ktx:2.9.6")
+    implementation("androidx.navigation:navigation-compose:2.9.6")
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-beta01")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
+    implementation("androidx.compose.runtime:runtime:1.10.1")
+    implementation("androidx.compose.foundation:foundation:1.10.1")
+    implementation("androidx.compose.ui:ui:1.10.1")
+    implementation("androidx.compose.ui:ui-graphics:1.10.1")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.10.1")
+    implementation("androidx.compose.material:material-icons-extended:1.7.8")
+    implementation("androidx.compose.material3:material3:1.4.0")
+}

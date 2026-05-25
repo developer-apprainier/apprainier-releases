@@ -1,0 +1,33 @@
+{
+  "name": "react-native-apprainier-plugin",
+  "version": "1.0.0",
+  "description": "React Native bridge for the AppRainier Android and iOS SDKs.",
+  "main": "src/index.js",
+  "react-native": "src/index.js",
+  "types": "src/index.d.ts",
+  "files": [
+    "src",
+    "android/build.gradle",
+    "android/src",
+    "android/libs/apprainier-sdk-release.aar",
+    "android/repo",
+    "ios/*.swift",
+    "ios/*.m",
+    "ios/Frameworks/AppRainierSdk.xcframework",
+    "README.md",
+    "react-native-apprainier-plugin.podspec",
+    "react-native.config.js"
+  ],
+  "keywords": [
+    "react-native",
+    "apprainier",
+    "engagement",
+    "surveys",
+    "feature-flags",
+    "message-center"
+  ],
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  }
+}

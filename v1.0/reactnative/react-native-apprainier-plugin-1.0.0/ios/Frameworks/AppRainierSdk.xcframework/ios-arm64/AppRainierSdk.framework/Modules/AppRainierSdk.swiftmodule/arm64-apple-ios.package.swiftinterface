@@ -1,0 +1,1544 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.3.1 (swiftlang-6.3.1.1.2 clang-2100.0.123.102)
+// swift-module-flags: -target arm64-apple-ios16.0 -enable-objc-interop -enable-library-evolution -swift-version 6 -O -enable-experimental-feature DebugDescriptionMacro -module-name AppRainierSdk -package-name apprainier_ios_sdk
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.1
+import Combine
+import Foundation
+import Swift
+import SwiftUI
+import UIKit
+import UserNotifications
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_hasMissingDesignatedInitializers @_Concurrency.MainActor final public class AppRainier : Foundation.ObservableObject {
+  @_Concurrency.MainActor public static let shared: AppRainierSdk.AppRainier
+  public struct MessageCenterRoute : Swift.Sendable, Swift.Equatable {
+    public let initialTab: Swift.String?
+    public let announcementId: Swift.String?
+    public let threadId: Swift.String?
+    public init(initialTab: Swift.String? = nil, announcementId: Swift.String? = nil, threadId: Swift.String? = nil)
+    public static func == (a: AppRainierSdk.AppRainier.MessageCenterRoute, b: AppRainierSdk.AppRainier.MessageCenterRoute) -> Swift.Bool
+  }
+  @Combine.Published<AppRainierSdk.SDKState> @_projectedValueProperty($state) @_Concurrency.MainActor final public var state: AppRainierSdk.SDKState {
+    get
+  }
+  @_Concurrency.MainActor final public var $state: Combine.Published<AppRainierSdk.SDKState>.Publisher {
+    get
+  }
+  @Combine.Published<AppRainierSdk.SurveyManager?> @_projectedValueProperty($surveyManager) @_Concurrency.MainActor final public var surveyManager: AppRainierSdk.SurveyManager? {
+    get
+  }
+  @_Concurrency.MainActor final public var $surveyManager: Combine.Published<AppRainierSdk.SurveyManager?>.Publisher {
+    get
+  }
+  @Combine.Published<AppRainierSdk.AnnouncementManager?> @_projectedValueProperty($announcementManager) @_Concurrency.MainActor final public var announcementManager: AppRainierSdk.AnnouncementManager? {
+    get
+  }
+  @_Concurrency.MainActor final public var $announcementManager: Combine.Published<AppRainierSdk.AnnouncementManager?>.Publisher {
+    get
+  }
+  @Combine.Published<AppRainierSdk.LiveCardManager?> @_projectedValueProperty($liveCardManager) @_Concurrency.MainActor final public var liveCardManager: AppRainierSdk.LiveCardManager? {
+    get
+  }
+  @_Concurrency.MainActor final public var $liveCardManager: Combine.Published<AppRainierSdk.LiveCardManager?>.Publisher {
+    get
+  }
+  @Combine.Published<AppRainierSdk.MessageManager?> @_projectedValueProperty($messageManager) @_Concurrency.MainActor final public var messageManager: AppRainierSdk.MessageManager? {
+    get
+  }
+  @_Concurrency.MainActor final public var $messageManager: Combine.Published<AppRainierSdk.MessageManager?>.Publisher {
+    get
+  }
+  @Combine.Published<AppRainierSdk.AppRainier.MessageCenterRoute?> @_projectedValueProperty($messageCenterRoute) @_Concurrency.MainActor final public var messageCenterRoute: AppRainierSdk.AppRainier.MessageCenterRoute? {
+    get
+  }
+  @_Concurrency.MainActor final public var $messageCenterRoute: Combine.Published<AppRainierSdk.AppRainier.MessageCenterRoute?>.Publisher {
+    get
+  }
+  @_Concurrency.MainActor final public var isReady: Swift.Bool {
+    get
+  }
+  @_Concurrency.MainActor final public func getState() -> AppRainierSdk.SDKState
+  @_Concurrency.MainActor final public func isInitialized() -> Swift.Bool
+  @_Concurrency.MainActor final public func initialize(apiKey: Swift.String, environment: AppRainierSdk.Environment, completion: ((AppRainierSdk.SDKState) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor final public func initialize(config sdkConfig: AppRainierSdk.AppRainierSDKConfig, completion: ((AppRainierSdk.SDKState) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor final public func initialize(configFileName: Swift.String = "apprainier-config", bundle: Foundation.Bundle = .main, completion: ((AppRainierSdk.SDKState) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor final public func initialize(configJSON: Swift.String, completion: ((AppRainierSdk.SDKState) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor final public func identify(userId: Swift.String, traits: [Swift.String : Any] = [:])
+  @_Concurrency.MainActor final public func resetUser(reason _: Swift.String = "manual_reset")
+  @_Concurrency.MainActor final public func setUserProfile(userId: Swift.String, userType: Swift.String, userProperties: [Swift.String : Any] = [:], appProperties: [Swift.String : Any] = [:], deviceProperties: [Swift.String : Any] = [:], customProperties: [Swift.String : Any] = [:])
+  @_Concurrency.MainActor final public func setUserProperty(_ key: Swift.String, value: Any)
+  @_Concurrency.MainActor final public func setAppProperty(_ key: Swift.String, value: Any)
+  @_Concurrency.MainActor final public func setDeviceProperty(_ key: Swift.String, value: Any)
+  @_Concurrency.MainActor final public func setCustomProperty(_ key: Swift.String, value: Any)
+  @_Concurrency.MainActor final public func setUserType(_ userType: Swift.String)
+  @_Concurrency.MainActor final public func getUserDebugState() -> AppRainierSdk.UserDebugState
+  @_Concurrency.MainActor final public func isApplicationInForeground() -> Swift.Bool
+  @_Concurrency.MainActor final public func isMessageCenterEnabled() -> Swift.Bool
+  @_Concurrency.MainActor final public func canShowMessageCenter() -> Swift.Bool
+  @_Concurrency.MainActor final public func getUnreadMessageCount() -> Swift.Int
+  @_Concurrency.MainActor final public func getUnreadMessageCount(_ callback: @escaping (Swift.Int) -> Swift.Void)
+  @_Concurrency.MainActor final public func getUserId() -> Swift.String?
+  @_Concurrency.MainActor final public func setCurrentActivity(_ scene: Any? = nil)
+  @_Concurrency.MainActor final public func clearCurrentActivity()
+  @_Concurrency.MainActor final public func onStart()
+  @_Concurrency.MainActor final public func onStop()
+  @_Concurrency.MainActor final public func refreshAllContent() async
+  @_Concurrency.MainActor final public func refreshFeatureFlags(force: Swift.Bool = false) async
+  @_Concurrency.MainActor final public func getFeatureFlagValue(_ flagKey: Swift.String) async -> AppRainierSdk.JSONValue?
+  @_Concurrency.MainActor final public func getFeatureFlag<T>(_ flagKey: Swift.String, defaultValue: T) async -> T
+  @_Concurrency.MainActor final public func getExperimentVariation(_ flagKey: Swift.String) async -> AppRainierSdk.Variation?
+  @_Concurrency.MainActor final public func getExperimentConfig(_ flagKey: Swift.String) async -> AppRainierSdk.ExperimentConfig?
+  @_Concurrency.MainActor final public func trackExperimentExposure(_ flagKey: Swift.String, context: [Swift.String : Any] = [:]) async
+  @_Concurrency.MainActor final public func trackExperimentConversion(_ flagKey: Swift.String, goalId: Swift.String? = nil, value: Any? = nil, context: [Swift.String : Any] = [:]) async
+  @_Concurrency.MainActor final public func refreshSurveys(force: Swift.Bool = false) async
+  @_Concurrency.MainActor final public func canShowSurvey(_ eventName: Swift.String) async -> Swift.Bool
+  @_Concurrency.MainActor final public func showSurvey(_ eventName: Swift.String) async -> AppRainierSdk.Survey?
+  @discardableResult
+  @_Concurrency.MainActor final public func showSurvey(_ eventName: Swift.String, callback: any AppRainierSdk.SurveyCallback) async -> Swift.Bool
+  @_Concurrency.MainActor final public func dismissCurrentSurvey()
+  @_Concurrency.MainActor final public func submitSurveyResponse(survey: AppRainierSdk.Survey, responses: [Swift.String : AppRainierSdk.JSONValue], completed: Swift.Bool = true) async -> Swift.Bool
+  @_Concurrency.MainActor final public func refreshAnnouncements(force: Swift.Bool = false) async
+  @_Concurrency.MainActor final public func canShowAnnouncement(_ eventName: Swift.String) async -> Swift.Bool
+  @_Concurrency.MainActor final public func showAnnouncement(_ eventName: Swift.String) async -> AppRainierSdk.AnnouncementBanner?
+  @discardableResult
+  @_Concurrency.MainActor final public func showAnnouncement(_ eventName: Swift.String, callback: any AppRainierSdk.AnnouncementCallback) async -> Swift.Bool
+  @_Concurrency.MainActor final public func dismissCurrentAnnouncement()
+  @_Concurrency.MainActor final public func submitAnnouncementResponse(announcement: AppRainierSdk.AnnouncementBanner, responses: [Swift.String : AppRainierSdk.JSONValue], completed: Swift.Bool = true) async -> Swift.Bool
+  @_Concurrency.MainActor final public func refreshLiveCards(force: Swift.Bool = true) async
+  @_Concurrency.MainActor final public func hasLiveCard(triggerId: Swift.String) async -> Swift.Bool
+  @_Concurrency.MainActor final public func getLiveCard(triggerId: Swift.String) async -> AppRainierSdk.LiveCard?
+  @_Concurrency.MainActor final public func hasLiveCard(triggerId: Swift.String, completion: @escaping (Swift.Bool) -> Swift.Void)
+  @_Concurrency.MainActor final public func createLiveCardView(triggerId: Swift.String, onTap: ((Swift.String?) -> Swift.Void)? = nil, completion: @escaping (SwiftUICore.AnyView?) -> Swift.Void)
+  @_Concurrency.MainActor final public func refreshMessageCenter() async
+  @_Concurrency.MainActor final public func loadMessages(threadId: Swift.String, limit: Swift.Int = 100) async -> [AppRainierSdk.Message]
+  @_Concurrency.MainActor final public func createThread(subject: Swift.String, initialMessage: Swift.String, metadata: [Swift.String : AppRainierSdk.JSONValue]? = nil) async -> AppRainierSdk.MessageThread?
+  @_Concurrency.MainActor final public func sendMessage(threadId: Swift.String, content: Swift.String, metadata: [Swift.String : AppRainierSdk.JSONValue]? = nil) async -> AppRainierSdk.Message?
+  @_Concurrency.MainActor final public func markAnnouncementRead(_ announcementId: Swift.String) async
+  @_Concurrency.MainActor final public func openMessageCenter(initialTab: Swift.String? = nil, announcementId: Swift.String? = nil, threadId: Swift.String? = nil)
+  @_Concurrency.MainActor final public func clearMessageCenterRoute()
+  @_Concurrency.MainActor final public func onPushTokenRefreshed(_ token: Swift.String)
+  @_Concurrency.MainActor final public func isAppRainierPush(userInfo: [Swift.AnyHashable : Any]) -> Swift.Bool
+  @discardableResult
+  @_Concurrency.MainActor final public func handlePushMessage(userInfo: [Swift.AnyHashable : Any]) -> Swift.Bool
+  @discardableResult
+  @_Concurrency.MainActor final public func handlePushMessage(notification: UserNotifications.UNNotification) -> Swift.Bool
+  @discardableResult
+  @_Concurrency.MainActor final public func handlePushMessage(response: UserNotifications.UNNotificationResponse) -> Swift.Bool
+  @_Concurrency.MainActor final public func trackEvent(_ eventName: Swift.String, properties: [Swift.String : Any] = [:], eventType: Swift.String = "custom")
+  @_Concurrency.MainActor final public func flush()
+  @_Concurrency.MainActor final public func shutdown()
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+public struct AppRainierSDKConfig : Swift.Codable, Swift.Sendable {
+  public struct Appwrite : Swift.Codable, Swift.Sendable {
+    public let endpoint: Swift.String
+    public let projectId: Swift.String
+    public let databaseId: Swift.String
+    public let gatewayFunctionId: Swift.String
+    public let imagesBucketId: Swift.String?
+    public let messageAttachmentsBucketId: Swift.String?
+    public init(endpoint: Swift.String = Constants.appwriteEndpoint, projectId: Swift.String = Constants.centralProjectId, databaseId: Swift.String = Constants.centralDatabaseId, gatewayFunctionId: Swift.String = Constants.sdkRuntimeGatewayFunctionId, imagesBucketId: Swift.String? = nil, messageAttachmentsBucketId: Swift.String? = nil)
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
+  }
+  public let schemaVersion: Swift.Int
+  public let apiKey: Swift.String
+  public let apiKeyId: Swift.String?
+  public let apiKeyName: Swift.String?
+  public let environment: Swift.String
+  public let appwrite: AppRainierSdk.AppRainierSDKConfig.Appwrite
+  public init(schemaVersion: Swift.Int = 1, apiKey: Swift.String, apiKeyId: Swift.String? = nil, apiKeyName: Swift.String? = nil, environment: Swift.String = Environment.production.rawValue, appwrite: AppRainierSdk.AppRainierSDKConfig.Appwrite = Appwrite())
+  public var selectedEnvironment: AppRainierSdk.Environment {
+    get
+  }
+  public static func fromJSON(_ json: Swift.String) throws -> AppRainierSdk.AppRainierSDKConfig
+  public static func fromBundle(fileName: Swift.String = "apprainier-config", bundle: Foundation.Bundle = .main) throws -> AppRainierSdk.AppRainierSDKConfig
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum AppRainierSDKConfigError : Foundation.LocalizedError {
+  case invalidUTF8
+  case fileNotFound(Swift.String)
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+public struct SurveyPresentationResult : Swift.Sendable {
+  public let surveyId: Swift.String
+  public let responses: [Swift.String : AppRainierSdk.JSONValue]
+  public let targetScreen: Swift.String?
+  public let deepLink: Swift.String?
+}
+public struct AnnouncementPresentationResult : Swift.Sendable {
+  public let announcementId: Swift.String
+  public let responses: [Swift.String : AppRainierSdk.JSONValue]
+  public let targetScreen: Swift.String?
+  public let deepLink: Swift.String?
+}
+public protocol SurveyCallback : Swift.Sendable {
+  func onSurveySubmitted(_ result: AppRainierSdk.SurveyPresentationResult)
+  func onSurveyCancelled(surveyId: Swift.String, targetScreen: Swift.String?, deepLink: Swift.String?)
+  func onSurveyDismissed(surveyId: Swift.String)
+}
+public protocol AnnouncementCallback : Swift.Sendable {
+  func onAnnouncementSubmitted(_ result: AppRainierSdk.AnnouncementPresentationResult)
+  func onAnnouncementCancelled(announcementId: Swift.String, targetScreen: Swift.String?, deepLink: Swift.String?)
+  func onAnnouncementDismissed(announcementId: Swift.String)
+}
+public enum Environment : Swift.String, Swift.Codable, Swift.Sendable, Swift.CaseIterable {
+  case debug
+  case stage
+  case production
+  public var wireValue: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [AppRainierSdk.Environment]
+  public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [AppRainierSdk.Environment] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum SDKState : Swift.Equatable, Swift.Sendable {
+  case notInitialized
+  case initializing
+  case ready
+  case error(Swift.String)
+  case shutdown
+  public static func == (a: AppRainierSdk.SDKState, b: AppRainierSdk.SDKState) -> Swift.Bool
+}
+public struct UserDebugState : Swift.Codable, Swift.Sendable, Swift.Equatable {
+  public let profileId: Swift.String
+  public let anonymousId: Swift.String
+  public let effectiveUserId: Swift.String
+  public let identifiedUserId: Swift.String?
+  public let deviceId: Swift.String
+  public let sessionId: Swift.String?
+  public let teamId: Swift.String?
+  public let environment: Swift.String?
+  public let appId: Swift.String?
+  public static func == (a: AppRainierSdk.UserDebugState, b: AppRainierSdk.UserDebugState) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+@_Concurrency.MainActor final public class AnnouncementManager : Foundation.ObservableObject {
+  @Combine.Published<[AppRainierSdk.AnnouncementBanner]> @_projectedValueProperty($announcements) @_Concurrency.MainActor final public var announcements: [AppRainierSdk.AnnouncementBanner] {
+    get
+  }
+  @_Concurrency.MainActor final public var $announcements: Combine.Published<[AppRainierSdk.AnnouncementBanner]>.Publisher {
+    get
+  }
+  @Combine.Published<AppRainierSdk.AnnouncementBanner?> @_projectedValueProperty($currentAnnouncement) @_Concurrency.MainActor final public var currentAnnouncement: AppRainierSdk.AnnouncementBanner? {
+    get
+  }
+  @_Concurrency.MainActor final public var $currentAnnouncement: Combine.Published<AppRainierSdk.AnnouncementBanner?>.Publisher {
+    get
+  }
+  @_Concurrency.MainActor public init(repository: AppRainierSdk.AnnouncementRepository, segmentRepository: AppRainierSdk.SegmentRepository, propertyManager: AppRainierSdk.PropertyManager, behavioralEventTracker: AppRainierSdk.BehavioralEventTracker, sessionManager: AppRainierSdk.SessionManager)
+  @_Concurrency.MainActor final public func refresh(force _: Swift.Bool = false) async
+  @_Concurrency.MainActor final public func canShowAnnouncement(_ eventName: Swift.String) async -> Swift.Bool
+  @_Concurrency.MainActor final public func showAnnouncement(_ eventName: Swift.String) async -> AppRainierSdk.AnnouncementBanner?
+  @_Concurrency.MainActor final public func onEventTriggered(_ eventName: Swift.String) async
+  @_Concurrency.MainActor final public func dismissCurrentAnnouncement()
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+final public class BehavioralEventTracker : @unchecked Swift.Sendable {
+  public init(defaults: Foundation.UserDefaults = .standard, propertyManager: AppRainierSdk.PropertyManager)
+  final public func recordEvent(_ eventName: Swift.String, occurredAt: Foundation.Date = Date())
+  final public func getEventCount(_ eventName: Swift.String) -> Swift.Int
+  final public func wasMilestoneShown(itemId: Swift.String, eventName: Swift.String, count: Swift.Int) -> Swift.Bool
+  final public func markMilestoneShown(itemId: Swift.String, eventName: Swift.String, count: Swift.Int)
+  @objc deinit
+}
+public actor EventManager {
+  public init(repository: AppRainierSdk.EventRepository)
+  public func configure(_ config: AppRainierSdk.RuntimeConfig.EventsConfig, killSwitches: AppRainierSdk.RuntimeConfig.KillSwitchConfig)
+  public func queueEvent(_ event: AppRainierSdk.EventRecord)
+  @discardableResult
+  public func flushEvents(force: Swift.Bool = false) async -> Swift.Bool
+  public func queuedEventCount() -> Swift.Int
+  public func hasQueuedEvents() -> Swift.Bool
+  public func clearQueue()
+  @objc deinit
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+  @_semantics("defaultActor") nonisolated final public var unownedExecutor: _Concurrency.UnownedSerialExecutor {
+    get
+  }
+}
+public enum EvaluationSource : Swift.Sendable {
+  case cache
+  case inactive
+  case error
+  public static func == (a: AppRainierSdk.EvaluationSource, b: AppRainierSdk.EvaluationSource) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct FeatureFlagResolution : Swift.Sendable {
+  public let value: AppRainierSdk.JSONValue?
+  public let source: AppRainierSdk.EvaluationSource
+}
+public actor FeatureFlagManager {
+  public init(repository: AppRainierSdk.FeatureFlagRepository, propertyManager: AppRainierSdk.PropertyManager, sessionManager: AppRainierSdk.SessionManager, eventTracker: (@Sendable (Swift.String, [Swift.String : AppRainierSdk.JSONValue], Swift.String) -> Swift.Void)? = nil)
+  public func refresh(force _: Swift.Bool = false) async
+  public func getFlag(_ key: Swift.String) -> AppRainierSdk.FeatureFlag?
+  public func getExperimentVariation(for key: Swift.String) -> AppRainierSdk.Variation?
+  public func getExperimentConfig(for key: Swift.String) -> AppRainierSdk.ExperimentConfig?
+  public func trackExperimentExposure(for key: Swift.String, context: [Swift.String : AppRainierSdk.JSONValue] = [:]) async
+  public func trackExperimentConversion(for key: Swift.String, goalId: Swift.String? = nil, value: AppRainierSdk.JSONValue? = nil, context: [Swift.String : AppRainierSdk.JSONValue] = [:])
+  public func resolveValue(for key: Swift.String) async -> AppRainierSdk.FeatureFlagResolution
+  @objc deinit
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+  @_semantics("defaultActor") nonisolated final public var unownedExecutor: _Concurrency.UnownedSerialExecutor {
+    get
+  }
+}
+@_Concurrency.MainActor final public class LiveCardManager : Foundation.ObservableObject {
+  @Combine.Published<[AppRainierSdk.LiveCard]> @_projectedValueProperty($cards) @_Concurrency.MainActor final public var cards: [AppRainierSdk.LiveCard] {
+    get
+  }
+  @_Concurrency.MainActor final public var $cards: Combine.Published<[AppRainierSdk.LiveCard]>.Publisher {
+    get
+  }
+  @_Concurrency.MainActor public init(repository: AppRainierSdk.LiveCardRepository, segmentRepository: AppRainierSdk.SegmentRepository, propertyManager: AppRainierSdk.PropertyManager, behavioralEventTracker: AppRainierSdk.BehavioralEventTracker, sessionManager: AppRainierSdk.SessionManager)
+  @_Concurrency.MainActor final public func refresh(force _: Swift.Bool = false) async
+  @_Concurrency.MainActor final public func hasLiveCard(triggerId: Swift.String) async -> Swift.Bool
+  @_Concurrency.MainActor final public func eligibleLiveCard(triggerId: Swift.String) async -> AppRainierSdk.LiveCard?
+  @_Concurrency.MainActor final public func trackImpression(for card: AppRainierSdk.LiveCard) async
+  @_Concurrency.MainActor final public func trackClick(for card: AppRainierSdk.LiveCard, buttonType: Swift.String? = nil, buttonId: Swift.String? = nil, actionType: Swift.String? = nil, actionTarget: Swift.String? = nil, carouselItemIndex: Swift.Int? = nil, position: Swift.String? = nil) async
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+@_Concurrency.MainActor final public class MessageManager : Foundation.ObservableObject {
+  @Combine.Published<[AppRainierSdk.MessageThread]> @_projectedValueProperty($threads) @_Concurrency.MainActor final public var threads: [AppRainierSdk.MessageThread] {
+    get
+  }
+  @_Concurrency.MainActor final public var $threads: Combine.Published<[AppRainierSdk.MessageThread]>.Publisher {
+    get
+  }
+  @Combine.Published<[AppRainierSdk.MessageCenterAnnouncement]> @_projectedValueProperty($announcements) @_Concurrency.MainActor final public var announcements: [AppRainierSdk.MessageCenterAnnouncement] {
+    get
+  }
+  @_Concurrency.MainActor final public var $announcements: Combine.Published<[AppRainierSdk.MessageCenterAnnouncement]>.Publisher {
+    get
+  }
+  @Combine.Published<AppRainierSdk.MessageCenterSettings?> @_projectedValueProperty($settings) @_Concurrency.MainActor final public var settings: AppRainierSdk.MessageCenterSettings? {
+    get
+  }
+  @_Concurrency.MainActor final public var $settings: Combine.Published<AppRainierSdk.MessageCenterSettings?>.Publisher {
+    get
+  }
+  @Combine.Published<[Swift.String : [AppRainierSdk.Message]]> @_projectedValueProperty($messagesByThreadId) @_Concurrency.MainActor final public var messagesByThreadId: [Swift.String : [AppRainierSdk.Message]] {
+    get
+  }
+  @_Concurrency.MainActor final public var $messagesByThreadId: Combine.Published<[Swift.String : [AppRainierSdk.Message]]>.Publisher {
+    get
+  }
+  @_Concurrency.MainActor public init(repository: AppRainierSdk.MessageRepository, propertyManager: AppRainierSdk.PropertyManager, sessionManager: AppRainierSdk.SessionManager)
+  @_Concurrency.MainActor final public func refreshSettings() async
+  @_Concurrency.MainActor final public func applySettingsAvailability()
+  @_Concurrency.MainActor final public func refreshAnnouncements() async
+  @_Concurrency.MainActor final public func refreshThreads() async
+  @_Concurrency.MainActor final public func loadMessages(threadId: Swift.String, limit: Swift.Int = 100) async -> [AppRainierSdk.Message]
+  @_Concurrency.MainActor final public func createThread(appId: Swift.String, environment: Swift.String, subject: Swift.String, initialMessage: Swift.String, organizationId: Swift.String? = nil, projectId: Swift.String? = nil, teamId: Swift.String? = nil, type: Swift.String? = nil, metadata: [Swift.String : AppRainierSdk.JSONValue]? = nil) async -> AppRainierSdk.MessageThread?
+  @_Concurrency.MainActor final public func sendMessage(threadId: Swift.String, content: Swift.String, environment: Swift.String, messageType: Swift.String? = nil, metadata: [Swift.String : AppRainierSdk.JSONValue]? = nil) async -> AppRainierSdk.Message?
+  @_Concurrency.MainActor final public func markAnnouncementRead(_ announcementId: Swift.String) async
+  @_Concurrency.MainActor final public func syncPushTokenIfAvailable() async
+  @_Concurrency.MainActor final public func setPushToken(_ token: Swift.String) async
+  @_Concurrency.MainActor final public func deleteThread(_ threadId: Swift.String) async -> Swift.Bool
+  @_Concurrency.MainActor final public func hideThreadForUser(_ threadId: Swift.String) async -> Swift.Bool
+  @_Concurrency.MainActor final public func markMessageRead(_ id: Swift.String, threadId: Swift.String) async
+  @_Concurrency.MainActor final public func markUnreadMessagesRead(threadId: Swift.String) async
+  @_Concurrency.MainActor final public var unreadCount: Swift.Int {
+    get
+  }
+  @_Concurrency.MainActor final public var isEnabled: Swift.Bool {
+    get
+  }
+  @_Concurrency.MainActor final public var isChatEnabled: Swift.Bool {
+    get
+  }
+  @_Concurrency.MainActor final public var areAnnouncementsEnabled: Swift.Bool {
+    get
+  }
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+final public class PropertyManager : @unchecked Swift.Sendable {
+  public init(defaults: Foundation.UserDefaults = .standard)
+  final public func setUserId(_ userId: Swift.String?)
+  final public func resetIdentity()
+  final public func setProfileId(_ value: Swift.String)
+  final public func setUserProperty(_ key: Swift.String, value: Any)
+  final public func setAppProperty(_ key: Swift.String, value: Any)
+  final public func setDeviceProperty(_ key: Swift.String, value: Any)
+  final public func setCustomProperty(_ key: Swift.String, value: Any)
+  final public func setUserType(_ userType: Swift.String)
+  final public func getUserId() -> Swift.String
+  final public func getCurrentKnownUserId() -> Swift.String?
+  final public func getAnonymousId() -> Swift.String
+  final public func getProfileId() -> Swift.String
+  final public func getDeviceId() -> Swift.String
+  final public func getUserProperties() -> [Swift.String : AppRainierSdk.JSONValue]
+  final public func getAppProperties() -> [Swift.String : AppRainierSdk.JSONValue]
+  final public func getDeviceProperties() -> [Swift.String : AppRainierSdk.JSONValue]
+  final public func getCustomProperties() -> [Swift.String : AppRainierSdk.JSONValue]
+  final public func getAllProperties() -> [Swift.String : AppRainierSdk.JSONValue]
+  @objc deinit
+}
+public struct SessionSnapshot : Swift.Sendable {
+  public let sessionId: Swift.String
+  public let startedAt: Foundation.Date
+  public let endedAt: Foundation.Date
+  public let duration: Foundation.TimeInterval
+  public let foregroundTime: Foundation.TimeInterval
+  public let backgroundTime: Foundation.TimeInterval
+}
+final public class SessionManager : @unchecked Swift.Sendable {
+  public init()
+  final public func startSession(userId: Swift.String)
+  final public func endSession() -> AppRainierSdk.SessionSnapshot?
+  final public func appDidEnterForeground()
+  final public func appDidEnterBackground()
+  final public func addBackgroundTime(_ duration: Foundation.TimeInterval)
+  final public func getCurrentSessionId() -> Swift.String?
+  @objc deinit
+}
+@_Concurrency.MainActor final public class SurveyManager : Foundation.ObservableObject {
+  @Combine.Published<[AppRainierSdk.Survey]> @_projectedValueProperty($surveys) @_Concurrency.MainActor final public var surveys: [AppRainierSdk.Survey] {
+    get
+  }
+  @_Concurrency.MainActor final public var $surveys: Combine.Published<[AppRainierSdk.Survey]>.Publisher {
+    get
+  }
+  @Combine.Published<AppRainierSdk.Survey?> @_projectedValueProperty($currentSurvey) @_Concurrency.MainActor final public var currentSurvey: AppRainierSdk.Survey? {
+    get
+  }
+  @_Concurrency.MainActor final public var $currentSurvey: Combine.Published<AppRainierSdk.Survey?>.Publisher {
+    get
+  }
+  @_Concurrency.MainActor public init(repository: AppRainierSdk.SurveyRepository, segmentRepository: AppRainierSdk.SegmentRepository, propertyManager: AppRainierSdk.PropertyManager, behavioralEventTracker: AppRainierSdk.BehavioralEventTracker, sessionManager: AppRainierSdk.SessionManager, deliveryDefaults: Foundation.UserDefaults = .standard)
+  @_Concurrency.MainActor final public func refresh(force _: Swift.Bool = false) async
+  @_Concurrency.MainActor final public func canShowSurvey(_ eventName: Swift.String) async -> Swift.Bool
+  @_Concurrency.MainActor final public func showSurvey(_ eventName: Swift.String) async -> AppRainierSdk.Survey?
+  @_Concurrency.MainActor final public func onEventTriggered(_ eventName: Swift.String) async
+  @_Concurrency.MainActor final public func dismissCurrentSurvey()
+  @_Concurrency.MainActor final public func completeCurrentSurvey(_ survey: AppRainierSdk.Survey)
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+public typealias AnnouncementBanner = AppRainierSdk.Survey
+public typealias AnnouncementBannerStructure = AppRainierSdk.SurveyStructure
+public typealias AnnouncementBannerConfig = AppRainierSdk.SurveyConfig
+public typealias AnnouncementBannerAnalytics = AppRainierSdk.SurveyAnalytics
+public typealias AnnouncementBannerTargeting = AppRainierSdk.SurveyTargeting
+public typealias AnnouncementBannerResponse = AppRainierSdk.SurveyResponse
+public struct ApiKeyConfig : Swift.Codable, Swift.Sendable {
+  public let organizationId: Swift.String
+  public let projectId: Swift.String
+  public let appId: Swift.String
+  public let teamId: Swift.String
+  public let apiKeyId: Swift.String
+  public let apiKey: Swift.String
+  public let environment: Swift.String?
+  public let runtimeConfig: AppRainierSdk.RuntimeConfig
+  public init(organizationId: Swift.String, projectId: Swift.String, appId: Swift.String, teamId: Swift.String, apiKeyId: Swift.String, apiKey: Swift.String, environment: Swift.String?, runtimeConfig: AppRainierSdk.RuntimeConfig = RuntimeConfig())
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct RuntimeConfig : Swift.Codable, Swift.Sendable {
+  public let cache: AppRainierSdk.RuntimeConfig.CacheConfig
+  public let events: AppRainierSdk.RuntimeConfig.EventsConfig
+  public let messageCenter: AppRainierSdk.RuntimeConfig.MessageCenterConfig
+  public let killSwitches: AppRainierSdk.RuntimeConfig.KillSwitchConfig
+  public init(cache: AppRainierSdk.RuntimeConfig.CacheConfig = CacheConfig(), events: AppRainierSdk.RuntimeConfig.EventsConfig = EventsConfig(), messageCenter: AppRainierSdk.RuntimeConfig.MessageCenterConfig = MessageCenterConfig(), killSwitches: AppRainierSdk.RuntimeConfig.KillSwitchConfig = KillSwitchConfig())
+  public struct CacheConfig : Swift.Codable, Swift.Sendable {
+    public let featureFlagsTtlMs: Swift.Int
+    public let surveysTtlMs: Swift.Int
+    public let announcementsTtlMs: Swift.Int
+    public let liveCardsTtlMs: Swift.Int
+    public let messageCenterSettingsTtlMs: Swift.Int
+    public init(featureFlagsTtlMs: Swift.Int = 5 * 60 * 1000, surveysTtlMs: Swift.Int = 15 * 60 * 1000, announcementsTtlMs: Swift.Int = 15 * 60 * 1000, liveCardsTtlMs: Swift.Int = 15 * 60 * 1000, messageCenterSettingsTtlMs: Swift.Int = 5 * 60 * 1000)
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
+  }
+  public struct EventsConfig : Swift.Codable, Swift.Sendable {
+    public let enabled: Swift.Bool
+    public let flushIntervalMs: Swift.Int
+    public let batchSize: Swift.Int
+    public let maxQueueSize: Swift.Int
+    public let maxRetryAttempts: Swift.Int
+    public let dedupeWindowMs: Swift.Int
+    public let maxEventsPerMinute: Swift.Int
+    public let sampling: AppRainierSdk.RuntimeConfig.SamplingConfig
+    public init(enabled: Swift.Bool = true, flushIntervalMs: Swift.Int = 2 * 60 * 1000, batchSize: Swift.Int = 50, maxQueueSize: Swift.Int = 500, maxRetryAttempts: Swift.Int = 2, dedupeWindowMs: Swift.Int = 1_500, maxEventsPerMinute: Swift.Int = 120, sampling: AppRainierSdk.RuntimeConfig.SamplingConfig = SamplingConfig())
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
+  }
+  public struct SamplingConfig : Swift.Codable, Swift.Sendable {
+    public let defaultPercent: Swift.Int
+    public let sdkPercent: Swift.Int
+    public let sessionPercent: Swift.Int
+    public let surveyPercent: Swift.Int
+    public let announcementPercent: Swift.Int
+    public let liveCardPercent: Swift.Int
+    public let featureFlagPercent: Swift.Int
+    public let warningPercent: Swift.Int
+    public let errorPercent: Swift.Int
+    public init(defaultPercent: Swift.Int = 100, sdkPercent: Swift.Int = 100, sessionPercent: Swift.Int = 100, surveyPercent: Swift.Int = 100, announcementPercent: Swift.Int = 100, liveCardPercent: Swift.Int = 100, featureFlagPercent: Swift.Int = 25, warningPercent: Swift.Int = 100, errorPercent: Swift.Int = 100)
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
+  }
+  public struct MessageCenterConfig : Swift.Codable, Swift.Sendable {
+    public let passivePollingEnabled: Swift.Bool
+    public let listPollingIntervalMs: Swift.Int
+    public let chatPollingIntervalMs: Swift.Int
+    public let foregroundRefreshTtlMs: Swift.Int
+    public init(passivePollingEnabled: Swift.Bool = false, listPollingIntervalMs: Swift.Int = 60 * 1000, chatPollingIntervalMs: Swift.Int = 10 * 1000, foregroundRefreshTtlMs: Swift.Int = 60 * 1000)
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
+  }
+  public struct KillSwitchConfig : Swift.Codable, Swift.Sendable {
+    public let disableEventLogs: Swift.Bool
+    public let disableSurveyImpressions: Swift.Bool
+    public let disableAnnouncementImpressions: Swift.Bool
+    public let disableLiveCardImpressions: Swift.Bool
+    public let disableFeatureFlagExposureLogs: Swift.Bool
+    public let disablePassiveMessagePolling: Swift.Bool
+    public init(disableEventLogs: Swift.Bool = false, disableSurveyImpressions: Swift.Bool = false, disableAnnouncementImpressions: Swift.Bool = false, disableLiveCardImpressions: Swift.Bool = false, disableFeatureFlagExposureLogs: Swift.Bool = false, disablePassiveMessagePolling: Swift.Bool = true)
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct EventRecord : Swift.Codable, Swift.Sendable {
+  public let eventName: Swift.String
+  public let userId: Swift.String
+  public let sessionId: Swift.String?
+  public let userProperties: [Swift.String : AppRainierSdk.JSONValue]
+  public let appProperties: [Swift.String : AppRainierSdk.JSONValue]
+  public let deviceProperties: [Swift.String : AppRainierSdk.JSONValue]
+  public let customProperties: [Swift.String : AppRainierSdk.JSONValue]
+  public let eventType: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SessionRecord : Swift.Codable, Swift.Sendable {
+  public let sessionId: Swift.String
+  public let userId: Swift.String
+  public let startedAt: Foundation.Date
+  public let duration: Foundation.TimeInterval?
+  public let foregroundTime: Foundation.TimeInterval?
+  public let backgroundTime: Foundation.TimeInterval?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct FeatureFlag : Swift.Codable, Swift.Sendable {
+  public let id: Swift.String?
+  public let name: Swift.String?
+  public let key: Swift.String?
+  public let description: Swift.String?
+  public let type: Swift.String?
+  public let defaultValue: Swift.String?
+  public let variationsJSON: Swift.String?
+  public let targetingRulesJSON: Swift.String?
+  public let rolloutConfigJSON: Swift.String?
+  public let scheduleConfigJSON: Swift.String?
+  public let status: Swift.String?
+  public let experimentStatus: Swift.String?
+  public let experimentConfigJSON: Swift.String?
+  public let ownerId: Swift.String?
+  public let organizationId: Swift.String?
+  public let projectId: Swift.String?
+  public let appId: Swift.String?
+  public let environment: Swift.String?
+  public let metadata: Swift.String?
+  public let tags: [Swift.String]?
+  public let version: Swift.String?
+  public let archived: Swift.Bool?
+  public let archivedAt: Swift.String?
+  public let archivedBy: Swift.String?
+  public let createdAt: Swift.String?
+  public let updatedAt: Swift.String?
+  public var variations: [AppRainierSdk.Variation] {
+    get
+  }
+  public var targetingRules: [AppRainierSdk.TargetingRule] {
+    get
+  }
+  public var rolloutConfig: AppRainierSdk.RolloutConfig? {
+    get
+  }
+  public var scheduleConfig: AppRainierSdk.ScheduleConfig? {
+    get
+  }
+  public var experimentConfig: AppRainierSdk.ExperimentConfig? {
+    get
+  }
+  public var metadataMap: [Swift.String : AppRainierSdk.JSONValue] {
+    get
+  }
+  public var deliveryMode: Swift.String {
+    get
+  }
+  public var audienceVariants: [AppRainierSdk.AudienceVariantGroup] {
+    get
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Variation : Swift.Codable, Swift.Sendable {
+  public let id: Swift.String?
+  public let name: Swift.String?
+  public let value: AppRainierSdk.JSONValue?
+  public let description: Swift.String?
+  public let weight: Swift.Double?
+  public let isControl: Swift.Bool?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct TargetingRule : Swift.Codable, Swift.Sendable {
+  public let id: Swift.String?
+  public let field: Swift.String?
+  public let op: Swift.String?
+  public let value: AppRainierSdk.JSONValue?
+  public let variations: [Swift.String]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct RolloutConfig : Swift.Codable, Swift.Sendable {
+  public let percentage: Swift.Int?
+  public let seed: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ScheduleConfig : Swift.Codable, Swift.Sendable {
+  public let enabled: Swift.Bool?
+  public let startDate: Swift.String?
+  public let endDate: Swift.String?
+  public let timezone: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ExperimentConfig : Swift.Codable, Swift.Sendable {
+  public let hypothesis: Swift.String?
+  public let goals: [AppRainierSdk.Goal]?
+  public let winningVariationId: Swift.String?
+  public let minSampleSize: Swift.Int?
+  public let confidenceLevel: Swift.Double?
+  public let minDurationDays: Swift.Int?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Goal : Swift.Codable, Swift.Sendable {
+  public let id: Swift.String?
+  public let name: Swift.String?
+  public let eventName: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct AudienceVariantGroup : Swift.Codable, Swift.Sendable {
+  public let id: Swift.String?
+  public let name: Swift.String?
+  public let segmentId: Swift.String?
+  public let priority: Swift.Int
+  public let value: AppRainierSdk.JSONValue?
+  public let rules: [AppRainierSdk.TargetingRule]?
+  public init(id: Swift.String? = nil, name: Swift.String? = nil, segmentId: Swift.String? = nil, priority: Swift.Int = 0, value: AppRainierSdk.JSONValue? = nil, rules: [AppRainierSdk.TargetingRule]? = nil)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct FeatureFlagEvaluation : Swift.Codable, Swift.Sendable {
+  public let flagId: Swift.String
+  public let flagKey: Swift.String
+  public let userId: Swift.String
+  public let deviceId: Swift.String
+  public let sessionId: Swift.String?
+  public let value: Swift.String
+  public let variationId: Swift.String?
+  public let variationName: Swift.String?
+  public let reason: Swift.String?
+  public let context: [Swift.String : AppRainierSdk.JSONValue]?
+  public let latency: Swift.Int?
+  public let evaluatedAt: Foundation.Date
+  public let organizationId: Swift.String?
+  public let projectId: Swift.String?
+  public let teamId: Swift.String?
+  public let appId: Swift.String?
+  public let environment: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct FeatureFlagExposure : Swift.Codable, Swift.Sendable {
+  public let flagId: Swift.String
+  public let variationId: Swift.String?
+  public let variationName: Swift.String?
+  public let userId: Swift.String
+  public let deviceId: Swift.String
+  public let sessionId: Swift.String?
+  public let context: [Swift.String : AppRainierSdk.JSONValue]?
+  public let exposedAt: Foundation.Date
+  public let organizationId: Swift.String?
+  public let projectId: Swift.String?
+  public let teamId: Swift.String?
+  public let appId: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct LiveCard : Swift.Codable, Swift.Sendable {
+  public let id: Swift.String?
+  public let name: Swift.String?
+  public let description: Swift.String?
+  public let icon: Swift.String?
+  public let title: Swift.String?
+  public let subtitle: Swift.String?
+  public let deepLink: Swift.String?
+  public let backgroundColor: Swift.String?
+  public let textColor: Swift.String?
+  public let targetingJSON: Swift.String?
+  public let rulesJSON: Swift.String?
+  public let scheduleJSON: Swift.String?
+  public let limitsJSON: Swift.String?
+  public let structureJSON: Swift.String?
+  public let configJSON: Swift.String?
+  public let analyticsJSON: Swift.String?
+  public let metadataJSON: Swift.String?
+  public let ownerId: Swift.String?
+  public let organizationId: Swift.String?
+  public let projectId: Swift.String?
+  public let appId: Swift.String?
+  public let templateId: Swift.String?
+  public let eventTriggerId: Swift.String?
+  public let scheduleStart: Swift.String?
+  public let scheduleEnd: Swift.String?
+  public let createdAt: Swift.String?
+  public let updatedAt: Swift.String?
+  public let publishedAt: Swift.String?
+  public let impressionCount: Swift.Int
+  public let tapCount: Swift.Int
+  public let version: Swift.Int
+  public let category: Swift.String?
+  public let priority: Swift.Int
+  public let status: Swift.String?
+  public var structure: AppRainierSdk.LiveCardStructure? {
+    get
+  }
+  public var config: AppRainierSdk.LiveCardConfig? {
+    get
+  }
+  public var targeting: AppRainierSdk.LiveCardTargeting? {
+    get
+  }
+  public var isActive: Swift.Bool {
+    get
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct LiveCardStructure : Swift.Codable, Swift.Sendable {
+  public let type: Swift.String?
+  public let icon: Swift.String?
+  public let iconURL: Swift.String?
+  public let title: Swift.String?
+  public let subtitle: Swift.String?
+  public let allowCustomIcon: Swift.Bool?
+  public let allowBackgroundImage: Swift.Bool?
+  public let buttonText: Swift.String?
+  public let secondaryButtonText: Swift.String?
+  public let deepLink: Swift.String?
+  public let carouselItems: [AppRainierSdk.CarouselItem]?
+  public let autoScroll: Swift.Bool?
+  public let scrollInterval: Swift.Int?
+  public let showIndicators: Swift.Bool?
+  public let showButtons: Swift.Bool?
+  public let allowCustomIcons: Swift.Bool?
+  public let maxItems: Swift.Int?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct CarouselItem : Swift.Codable, Swift.Sendable {
+  public let id: Swift.String?
+  public let icon: Swift.String?
+  public let title: Swift.String?
+  public let subtitle: Swift.String?
+  public let color: Swift.String?
+  public let action: AppRainierSdk.CarouselItemAction?
+  public let image: Swift.String?
+  public let titleColor: Swift.String?
+  public let subtitleColor: Swift.String?
+  public let titleSize: Swift.String?
+  public let subtitleSize: Swift.String?
+  public let deepLink: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct CarouselItemAction : Swift.Codable, Swift.Sendable {
+  public let type: Swift.String?
+  public let target: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct LiveCardConfig : Swift.Codable, Swift.Sendable {
+  public let style: AppRainierSdk.LiveCardStyle?
+  public let behavior: AppRainierSdk.LiveCardBehavior?
+  public let layout: AppRainierSdk.LiveCardLayout?
+  public let targeting: [Swift.String : AppRainierSdk.JSONValue]?
+  public let segmentation: [Swift.String : AppRainierSdk.JSONValue]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct LiveCardStyle : Swift.Codable, Swift.Sendable {
+  public let backgroundColor: Swift.String?
+  public let textColor: Swift.String?
+  public let buttonTextColor: Swift.String?
+  public let buttonBackgroundColor: Swift.String?
+  public let fontFamily: Swift.String?
+  public let titleSize: Swift.String?
+  public let textSize: Swift.String?
+  public let borderRadius: Swift.Int?
+  public let shadow: Swift.Bool?
+  public let backgroundImage: Swift.String?
+  public let backgroundGradient: Swift.String?
+  public let isImageBackground: Swift.Bool?
+  public let gradientColors: [Swift.String]?
+  public let gradientDirection: Swift.String?
+  public let iconColor: Swift.String?
+  public let iconSize: Swift.String?
+  public let iconWidth: Swift.Double?
+  public let iconHeight: Swift.Double?
+  public let iconFit: Swift.String?
+  public let iconAlignment: Swift.String?
+  public let subtitleSize: Swift.String?
+  public let titleColor: Swift.String?
+  public let subtitleColor: Swift.String?
+  public let descriptionSize: Swift.String?
+  public let cardWidth: Swift.Int?
+  public let cardHeight: Swift.Int?
+  public let sizeUnit: Swift.String?
+  public let cornerRadius: Swift.Double?
+  public let cornerRadiusUnit: Swift.String?
+  public let autoSize: Swift.Bool?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct LiveCardBehavior : Swift.Codable, Swift.Sendable {
+  public let autoDismiss: Swift.Bool?
+  public let showCloseButton: Swift.Bool?
+  public let displayDuration: Swift.Int?
+  public let showProgressIndicator: Swift.Bool?
+  public let allowSwipeToDismiss: Swift.Bool?
+  public let preventDismissOnInteraction: Swift.Bool?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct LiveCardLayout : Swift.Codable, Swift.Sendable {
+  public let position: Swift.String?
+  public let animation: Swift.String?
+  public let width: Swift.Double?
+  public let maxWidth: Swift.Int?
+  public let height: Swift.Int?
+  public let overlayColor: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct LiveCardTargeting : Swift.Codable, Swift.Sendable {
+  public let rules: [AppRainierSdk.LiveCardRule]
+  public let matchType: Swift.String?
+  public let segmentId: Swift.String?
+  public let behavioralTrigger: AppRainierSdk.BehavioralTrigger?
+  public let audience: Swift.String
+  public let percentage: Swift.Int
+  public let userSegments: [Swift.String]?
+  public let minSessions: Swift.Int?
+  public let minAppVersion: Swift.String?
+  public let maxAppVersion: Swift.String?
+  public let platforms: [Swift.String]?
+  public let languages: [Swift.String]?
+  public let triggerEvents: [Swift.String]?
+  public let excludeUsers: [Swift.String]?
+  public let requireUserProperties: [Swift.String : AppRainierSdk.JSONValue]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct LiveCardRule : Swift.Codable, Swift.Sendable {
+  public let id: Swift.String?
+  public let name: Swift.String?
+  public let conditions: [AppRainierSdk.RuleCondition]
+  public let enabled: Swift.Bool
+  public let requireAllConditions: Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct LiveCardImpression : Swift.Codable, Swift.Sendable {
+  public let id: Swift.String?
+  public let liveCardId: Swift.String?
+  public let userId: Swift.String?
+  public let sessionId: Swift.String?
+  public let deviceId: Swift.String?
+  public let appVersion: Swift.String?
+  public let connectionType: Swift.String?
+  public let timestamp: Swift.String?
+  public let metadata: Swift.String?
+  public let country: Swift.String?
+  public let region: Swift.String?
+  public let city: Swift.String?
+  public let language: Swift.String?
+  public let screenSize: Swift.String?
+  public let deviceModel: Swift.String?
+  public let osVersion: Swift.String?
+  public let platform: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct LiveCardClick : Swift.Codable, Swift.Sendable {
+  public let id: Swift.String?
+  public let liveCardId: Swift.String?
+  public let userId: Swift.String?
+  public let sessionId: Swift.String?
+  public let deviceId: Swift.String?
+  public let impressionId: Swift.String?
+  public let buttonType: Swift.String?
+  public let buttonId: Swift.String?
+  public let actionType: Swift.String?
+  public let actionTarget: Swift.String?
+  public let carouselItemIndex: Swift.Int?
+  public let position: Swift.String?
+  public let timestamp: Swift.String?
+  public let timeToAction: Swift.Int?
+  public let appVersion: Swift.String?
+  public let platform: Swift.String?
+  public let metadata: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Message : Swift.Codable, Swift.Sendable, Swift.Identifiable {
+  public let id: Swift.String
+  public let conversationId: Swift.String
+  public let senderId: Swift.String
+  public let senderType: Swift.String
+  public let senderName: Swift.String
+  public let senderEmail: Swift.String?
+  public let content: Swift.String
+  public let messageType: Swift.String
+  public let attachmentsJSON: Swift.String?
+  public let isRead: Swift.Bool
+  public let metadataJSON: Swift.String?
+  public let createdAt: Swift.String
+  public let updatedAt: Swift.String
+  public init(from decoder: any Swift.Decoder) throws
+  public typealias ID = Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct MessageThread : Swift.Codable, Swift.Sendable, Swift.Identifiable {
+  public let id: Swift.String
+  public let conversationId: Swift.String
+  public let appId: Swift.String
+  public let environment: Swift.String
+  public let organizationId: Swift.String?
+  public let projectId: Swift.String?
+  public let teamId: Swift.String?
+  public let assignedTo: Swift.String?
+  public let userId: Swift.String
+  public let anonymousId: Swift.String?
+  public let sessionId: Swift.String?
+  public let userName: Swift.String?
+  public let userEmail: Swift.String?
+  public let title: Swift.String
+  public let status: Swift.String
+  public let unreadCount: Swift.Int
+  public let lastMessageAt: Swift.String?
+  public let metadataJSON: Swift.String?
+  public let createdAt: Swift.String
+  public let updatedAt: Swift.String
+  public init(from decoder: any Swift.Decoder) throws
+  public func withUnreadCount(_ unreadCount: Swift.Int) -> AppRainierSdk.MessageThread
+  public typealias ID = Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct MessageCenterAnnouncement : Swift.Codable, Swift.Sendable, Swift.Identifiable {
+  public let id: Swift.String
+  public let appId: Swift.String
+  public let environment: Swift.String
+  public let title: Swift.String
+  public let content: Swift.String
+  public let type: Swift.String
+  public let status: Swift.String
+  public let attachmentsJSON: Swift.String?
+  public let createdBy: Swift.String
+  public let creatorName: Swift.String?
+  public let creatorEmail: Swift.String?
+  public let targetingRulesJSON: Swift.String?
+  public let sentAt: Swift.String?
+  public let startTime: Swift.String?
+  public let endTime: Swift.String?
+  public let totalRecipients: Swift.Int
+  public let openedCount: Swift.Int
+  public let clickedCount: Swift.Int
+  public let metadataJSON: Swift.String?
+  public let createdAt: Swift.String
+  public let updatedAt: Swift.String
+  public typealias ID = Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct MessageCenterSettings : Swift.Codable, Swift.Sendable {
+  public let id: Swift.String
+  public let appId: Swift.String
+  public let environment: Swift.String
+  public let organizationId: Swift.String?
+  public let projectId: Swift.String?
+  public let teamId: Swift.String?
+  public let isEnabled: Swift.Bool
+  public let chatEnabled: Swift.Bool
+  public let announcementsEnabled: Swift.Bool
+  public let pushEnabled: Swift.Bool
+  public let maxOpenConversationsPerUser: Swift.Int
+  public let allowUserConversationDelete: Swift.Bool
+  public let updatedBy: Swift.String?
+  public let createdAt: Swift.String?
+  public let updatedAt: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct CreateMessageRequest : Swift.Codable, Swift.Sendable {
+  public let userId: Swift.String
+  public let userName: Swift.String?
+  public let userEmail: Swift.String?
+  public let threadId: Swift.String
+  public let content: Swift.String
+  public let environment: Swift.String
+  public let sessionId: Swift.String?
+  public let messageType: Swift.String?
+  public let attachments: [Swift.String]?
+  public let metadata: [Swift.String : AppRainierSdk.JSONValue]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct CreateThreadRequest : Swift.Codable, Swift.Sendable {
+  public let appId: Swift.String
+  public let userId: Swift.String
+  public let userName: Swift.String?
+  public let userEmail: Swift.String?
+  public let subject: Swift.String
+  public let initialMessage: Swift.String
+  public let environment: Swift.String
+  public let anonymousId: Swift.String?
+  public let sessionId: Swift.String?
+  public let organizationId: Swift.String?
+  public let projectId: Swift.String?
+  public let teamId: Swift.String?
+  public let type: Swift.String?
+  public let attachments: [Swift.String]?
+  public let metadata: [Swift.String : AppRainierSdk.JSONValue]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Segment : Swift.Codable, Swift.Sendable {
+  public let id: Swift.String
+  public let name: Swift.String
+  public let description: Swift.String?
+  public let conditionsJSON: Swift.String?
+  public let isActive: Swift.Bool?
+  public var conditions: [AppRainierSdk.SegmentCondition] {
+    get
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SegmentCondition : Swift.Codable, Swift.Sendable {
+  public let id: Swift.String?
+  public let field: Swift.String
+  public let op: Swift.String
+  public let value: AppRainierSdk.JSONValue?
+  public let type: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Survey : Swift.Codable, Swift.Sendable {
+  public let id: Swift.String?
+  public let name: Swift.String?
+  public let description: Swift.String?
+  public let templateId: Swift.String?
+  public let structureJSON: Swift.String?
+  public let targetingJSON: Swift.String?
+  public let status: Swift.String?
+  public let ownerId: Swift.String?
+  public let organizationId: Swift.String?
+  public let projectId: Swift.String?
+  public let appId: Swift.String?
+  public let eventTriggerId: Swift.String?
+  public let configJSON: Swift.String?
+  public let analyticsJSON: Swift.String?
+  public let scheduleStart: Swift.String?
+  public let scheduleEnd: Swift.String?
+  public let createdAt: Swift.String?
+  public let updatedAt: Swift.String?
+  public var structure: AppRainierSdk.SurveyStructure? {
+    get
+  }
+  public var targeting: AppRainierSdk.SurveyTargeting? {
+    get
+  }
+  public var config: AppRainierSdk.SurveyConfig? {
+    get
+  }
+  public var analytics: AppRainierSdk.SurveyAnalytics? {
+    get
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SurveyStructure : Swift.Codable, Swift.Sendable {
+  public let type: Swift.String?
+  public let title: Swift.String?
+  public let subtitle: Swift.String?
+  public let description: Swift.String?
+  public let questions: [AppRainierSdk.SurveyQuestion]
+  public let buttons: AppRainierSdk.SurveyButtons?
+  public let style: AppRainierSdk.SurveyStyle?
+  public let config: [Swift.String : AppRainierSdk.JSONValue]?
+  public let targeting: [Swift.String : AppRainierSdk.JSONValue]?
+  public let iconURL: Swift.String?
+  public let icon: Swift.String?
+  public let fieldStyles: [Swift.String : AppRainierSdk.JSONValue]?
+  public let items: [[Swift.String : AppRainierSdk.JSONValue]]?
+  public let showIndicators: Swift.Bool?
+  public let allowSwipe: Swift.Bool?
+  public let autoAdvance: Swift.Bool?
+  public let autoAdvanceInterval: Swift.Int?
+  public let bullets: [Swift.String]?
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct SurveyQuestion : Swift.Codable, Swift.Sendable {
+  public let id: Swift.String?
+  public let type: Swift.String?
+  public let title: Swift.String?
+  public let subtitle: Swift.String?
+  public let description: Swift.String?
+  public let placeholder: Swift.String?
+  public let required: Swift.Bool
+  public let options: [AppRainierSdk.SurveyOption]
+  public let minRating: Swift.Int?
+  public let maxRating: Swift.Int?
+  public let maxLength: Swift.Int?
+  public let maxSelections: Swift.Int?
+  public let scale: Swift.Int?
+  public let logic: [Swift.String : AppRainierSdk.JSONValue]?
+  public let conditions: [Swift.String : AppRainierSdk.JSONValue]?
+  public let style: [Swift.String : AppRainierSdk.JSONValue]?
+  public let allowScreenshot: Swift.Bool?
+  public let screenshotLabel: Swift.String?
+  public let labels: [Swift.String : Swift.String]?
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct SurveyOption : Swift.Codable, Swift.Sendable {
+  public let value: Swift.String?
+  public let label: Swift.String?
+  public let description: Swift.String?
+  public init(value: Swift.String?, label: Swift.String?, description: Swift.String?)
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct SurveyButtons : Swift.Codable, Swift.Sendable {
+  public let primary: AppRainierSdk.SurveyButton?
+  public let secondary: AppRainierSdk.SurveyButton?
+  public let submitText: AppRainierSdk.SurveyButton?
+  public let cancelText: AppRainierSdk.SurveyButton?
+  public let skipText: AppRainierSdk.SurveyButton?
+  public let nextText: AppRainierSdk.SurveyButton?
+  public let previousText: AppRainierSdk.SurveyButton?
+  public let confirmText: AppRainierSdk.SurveyButton?
+  public let dismissText: AppRainierSdk.SurveyButton?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SurveyButton : Swift.Codable, Swift.Sendable {
+  public let text: Swift.String?
+  public let type: Swift.String?
+  public let visible: Swift.Bool
+  public let action: Swift.String?
+  public let deeplinkURI: Swift.String?
+  public let target: Swift.String?
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct SurveyStyle : Swift.Codable, Swift.Sendable {
+  public let primaryColor: Swift.String?
+  public let backgroundColor: Swift.String?
+  public let textColor: Swift.String?
+  public let buttonTextColor: Swift.String?
+  public let buttonBackgroundColor: Swift.String?
+  public let secondaryButtonColor: Swift.String?
+  public let secondaryButtonTextColor: Swift.String?
+  public let bulletTextColor: Swift.String?
+  public let fontFamily: Swift.String?
+  public let titleSize: Swift.String?
+  public let textSize: Swift.String?
+  public let borderRadius: Swift.Int?
+  public let shadow: Swift.Bool?
+  public let iconColor: Swift.String?
+  public let iconSize: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SurveyTargeting : Swift.Codable, Swift.Sendable {
+  public let rules: [AppRainierSdk.SurveyRule]
+  public let matchType: Swift.String?
+  public let schedule: AppRainierSdk.SurveySchedule?
+  public let segmentId: Swift.String?
+  public let behavioralTrigger: AppRainierSdk.BehavioralTrigger?
+  public let audience: Swift.String
+  public let percentage: Swift.Int
+  public let samplingPercentage: Swift.Int?
+  public let priority: Swift.Int?
+  public let frequency: AppRainierSdk.SurveyFrequency?
+  public let triggerCountRule: AppRainierSdk.SurveyTriggerCountRule?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct BehavioralTrigger : Swift.Codable, Swift.Sendable {
+  public let enabled: Swift.Bool
+  public let eventName: Swift.String?
+  public let op: Swift.String?
+  public let count: Swift.Int?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SurveyFrequency : Swift.Codable, Swift.Sendable {
+  public let showOncePerUser: Swift.Bool?
+  public let reshowAfterDismiss: Swift.Bool?
+  public let maxImpressions: Swift.Int?
+  public let cooldownMinutes: Swift.Int?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SurveyTriggerCountRule : Swift.Codable, Swift.Sendable {
+  public let enabled: Swift.Bool
+  public let eventName: Swift.String?
+  public let op: Swift.String?
+  public let count: Swift.Int?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SurveyRule : Swift.Codable, Swift.Sendable {
+  public let id: Swift.String?
+  public let name: Swift.String?
+  public let conditions: [AppRainierSdk.RuleCondition]
+  public let enabled: Swift.Bool
+  public let requireAllConditions: Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct RuleCondition : Swift.Codable, Swift.Sendable {
+  public let id: Swift.String?
+  public let field: Swift.String?
+  public let op: Swift.String?
+  public let value: AppRainierSdk.JSONValue?
+  public let enabled: Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SurveySchedule : Swift.Codable, Swift.Sendable {
+  public let enabled: Swift.Bool?
+  public let startDate: Swift.String?
+  public let endDate: Swift.String?
+  public let timezone: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SurveyConfig : Swift.Codable, Swift.Sendable {
+  public let style: AppRainierSdk.SurveyStyle?
+  public let behavior: AppRainierSdk.SurveyBehavior?
+  public let layout: AppRainierSdk.SurveyLayout?
+  public let targeting: [Swift.String : AppRainierSdk.JSONValue]?
+  public let segmentation: [Swift.String : AppRainierSdk.JSONValue]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SurveyBehavior : Swift.Codable, Swift.Sendable {
+  public let showProgress: Swift.Bool?
+  public let allowSkip: Swift.Bool?
+  public let autoDismiss: Swift.Bool?
+  public let requireConfirmation: Swift.Bool?
+  public let showQuestionCount: Swift.Bool?
+  public let autoAdvance: Swift.Bool?
+  public let fullscreen: Swift.Bool?
+  public let preventClose: Swift.Bool?
+  public let displayDuration: Swift.Int?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SurveyLayout : Swift.Codable, Swift.Sendable {
+  public let position: Swift.String?
+  public let width: Swift.Double?
+  public let maxWidth: Swift.Int?
+  public let animation: Swift.String?
+  public let overlayColor: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SurveyAnalytics : Swift.Codable, Swift.Sendable {
+  public let impressionEvent: Swift.String?
+  public let submitEvent: Swift.String?
+  public let responseEvent: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SurveyResponse : Swift.Codable, Swift.Sendable {
+  public let id: Swift.String?
+  public let userId: Swift.String?
+  public let appId: Swift.String?
+  public let appVersion: Swift.String?
+  public let platform: Swift.String?
+  public let metadata: Swift.String?
+  public let organizationId: Swift.String?
+  public let projectId: Swift.String?
+  public let surveyId: Swift.String?
+  public let responsesJSON: Swift.String?
+  public let completed: Swift.Bool
+  public let surveyName: Swift.String?
+  public let userName: Swift.String?
+  public let userEmail: Swift.String?
+  public let userSegment: Swift.String?
+  public let answersJSON: Swift.String?
+  public let score: Swift.Double?
+  public let completionTime: Swift.Int
+  public let deviceInfo: Swift.String?
+  public let location: Swift.String?
+  public let submittedAt: Swift.String?
+  public let ownerId: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+final public class AppwriteClient : @unchecked Swift.Sendable {
+  final public var endpoint: Foundation.URL {
+    get
+  }
+  final public var projectId: Swift.String {
+    get
+  }
+  final public let session: Foundation.URLSession
+  public init(endpoint: Foundation.URL = URL(string: Constants.appwriteEndpoint)!, projectId: Swift.String = Constants.centralProjectId, databaseId: Swift.String = Constants.centralDatabaseId, gatewayFunctionId: Swift.String = Constants.sdkRuntimeGatewayFunctionId, session: Foundation.URLSession = .shared)
+  final public func configure(appwrite: AppRainierSdk.AppRainierSDKConfig.Appwrite) throws
+  final public func setTeamId(_ teamId: Swift.String)
+  final public func setEnvironment(_ environment: Swift.String)
+  final public func setGatewaySessionToken(_ token: Swift.String?)
+  final public func getTeamId() -> Swift.String?
+  final public func getEnvironment() -> Swift.String?
+  final public func getGatewaySessionToken() -> Swift.String?
+  final public func getDatabaseId() -> Swift.String
+  final public func getGatewayFunctionId() -> Swift.String
+  @objc deinit
+}
+final public class AnnouncementRepository : Swift.Sendable {
+  public init(client: AppRainierSdk.AppwriteClient)
+  final public func getAnnouncements() async -> [AppRainierSdk.AnnouncementBanner]
+  final public func submitResponse(_ response: AppRainierSdk.AnnouncementBannerResponse) async -> Swift.Bool
+  @objc deinit
+}
+final public class ApiKeyRepository : Swift.Sendable {
+  public init(client: AppRainierSdk.AppwriteClient)
+  final public func validateApiKey(_ apiKey: Swift.String, environment: AppRainierSdk.Environment) async throws -> AppRainierSdk.ApiKeyConfig
+  @objc deinit
+}
+final public class EventRepository : Swift.Sendable {
+  public init(client: AppRainierSdk.AppwriteClient)
+  final public func submitEvents(_ events: [AppRainierSdk.EventRecord]) async -> Swift.Bool
+  @objc deinit
+}
+final public class FeatureFlagRepository : Swift.Sendable {
+  public init(client: AppRainierSdk.AppwriteClient)
+  final public func getFeatureFlags() async -> [AppRainierSdk.FeatureFlag]
+  final public func trackEvaluation(_ evaluation: AppRainierSdk.FeatureFlagEvaluation) async -> Swift.Bool
+  final public func trackExposure(_ exposure: AppRainierSdk.FeatureFlagExposure) async -> Swift.Bool
+  @objc deinit
+}
+final public class LiveCardRepository : Swift.Sendable {
+  public init(client: AppRainierSdk.AppwriteClient)
+  final public func getLiveCards() async -> [AppRainierSdk.LiveCard]
+  final public func trackImpression(_ impression: AppRainierSdk.LiveCardImpression) async -> Swift.Bool
+  final public func trackClick(_ click: AppRainierSdk.LiveCardClick) async -> Swift.Bool
+  @objc deinit
+}
+final public class MessageRepository : Swift.Sendable {
+  public init(client: AppRainierSdk.AppwriteClient)
+  final public func getMessageThreads(userId: Swift.String, anonymousId: Swift.String?, limit: Swift.Int = 50) async throws -> [AppRainierSdk.MessageThread]
+  final public func getMessages(threadId: Swift.String, limit: Swift.Int = 100) async throws -> [AppRainierSdk.Message]
+  final public func getAnnouncements(userId: Swift.String, anonymousId: Swift.String?, limit: Swift.Int = 50) async throws -> [AppRainierSdk.MessageCenterAnnouncement]
+  final public func getMessageCenterSettings() async -> AppRainierSdk.MessageCenterSettings?
+  final public func createThread(_ request: AppRainierSdk.CreateThreadRequest) async throws -> AppRainierSdk.MessageThread?
+  final public func sendMessage(_ request: AppRainierSdk.CreateMessageRequest) async throws -> AppRainierSdk.Message?
+  final public func markAnnouncementAsRead(announcementId: Swift.String, userId: Swift.String, anonymousId: Swift.String?) async throws -> Swift.Bool
+  final public func upsertPushToken(userId: Swift.String?, anonymousId: Swift.String?, deviceId: Swift.String, pushToken: Swift.String) async throws -> Swift.Bool
+  final public func deleteThread(threadId: Swift.String) async throws -> Swift.Bool
+  final public func hideThreadForUser(threadId: Swift.String) async throws -> Swift.Bool
+  final public func markMessageAsRead(id: Swift.String) async throws -> AppRainierSdk.Message?
+  final public func updateThreadUnreadCount(threadId: Swift.String, unreadCount: Swift.Int) async throws -> Swift.Bool
+  @objc deinit
+}
+final public class RuntimeGatewayRepository : Swift.Sendable {
+  public init(client: AppRainierSdk.AppwriteClient)
+  final public func execute(action: Swift.String, payload: [Swift.String : AppRainierSdk.JSONValue] = [:], includeSessionToken: Swift.Bool = true) async throws -> [Swift.String : AppRainierSdk.JSONValue]
+  final public func executeList<T>(action: Swift.String, payload: [Swift.String : AppRainierSdk.JSONValue] = [:], dataKey: Swift.String = "items", includeSessionToken: Swift.Bool = true, as type: T.Type) async throws -> [T] where T : Swift.Decodable
+  final public func executeObject<T>(action: Swift.String, payload: [Swift.String : AppRainierSdk.JSONValue] = [:], dataKey: Swift.String? = nil, includeSessionToken: Swift.Bool = true, as type: T.Type) async throws -> T? where T : Swift.Decodable
+  final public func executeBoolean(action: Swift.String, payload: [Swift.String : AppRainierSdk.JSONValue] = [:], dataKey: Swift.String = "success", includeSessionToken: Swift.Bool = true) async throws -> Swift.Bool
+  @objc deinit
+}
+public enum RuntimeGatewayError : Swift.Error {
+  case invalidResponse
+  case httpError(Swift.Int)
+  case gatewayError(Swift.String)
+}
+extension AppRainierSdk.RuntimeGatewayError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+final public class SegmentRepository : Swift.Sendable {
+  public init(client: AppRainierSdk.AppwriteClient)
+  final public func getSegment(id: Swift.String) async -> AppRainierSdk.Segment?
+  @objc deinit
+}
+final public class SurveyRepository : Swift.Sendable {
+  public init(client: AppRainierSdk.AppwriteClient)
+  final public func getSurveys() async -> [AppRainierSdk.Survey]
+  final public func submitResponse(_ response: AppRainierSdk.SurveyResponse) async -> Swift.Bool
+  @objc deinit
+}
+final public class UserRepository : Swift.Sendable {
+  public struct UserSyncSnapshot : Swift.Sendable {
+    public let profileId: Swift.String
+    public let anonymousId: Swift.String
+    public let effectiveUserId: Swift.String
+    public let identifiedUserId: Swift.String?
+    public let teamId: Swift.String
+    public let environment: Swift.String
+    public let organizationId: Swift.String?
+    public let projectId: Swift.String?
+    public let appId: Swift.String
+    public let bundleOrPackageId: Swift.String
+    public let deviceId: Swift.String
+    public let userType: Swift.String?
+    public let userProperties: [Swift.String : AppRainierSdk.JSONValue]
+    public let appProperties: [Swift.String : AppRainierSdk.JSONValue]
+    public let deviceProperties: [Swift.String : AppRainierSdk.JSONValue]
+    public let customProperties: [Swift.String : AppRainierSdk.JSONValue]
+    public let sessionId: Swift.String?
+    public let isRegistered: Swift.Bool
+    public let registrationDate: Swift.String?
+    public let lastLogin: Swift.String?
+  }
+  public struct IdentifyResult : Swift.Sendable {
+    public let profileId: Swift.String
+    public let mergedFromProfileId: Swift.String?
+  }
+  public init(client: AppRainierSdk.AppwriteClient)
+  final public func syncUserState(snapshot: AppRainierSdk.UserRepository.UserSyncSnapshot, incrementSessionCount: Swift.Bool = false) async throws -> Swift.Bool
+  final public func startSession(snapshot: AppRainierSdk.UserRepository.UserSyncSnapshot) async throws -> Swift.Bool
+  final public func endSession(snapshot: AppRainierSdk.UserRepository.UserSyncSnapshot, sessionData: AppRainierSdk.SessionSnapshot) async throws -> Swift.Bool
+  final public func identifyUser(snapshot: AppRainierSdk.UserRepository.UserSyncSnapshot, identifiedUserId: Swift.String, traits: [Swift.String : AppRainierSdk.JSONValue] = [:]) async throws -> AppRainierSdk.UserRepository.IdentifyResult
+  @objc deinit
+}
+public enum Constants {
+  public static let sdkVersion: Swift.String
+  public static let appwriteEndpoint: Swift.String
+  public static let centralProjectId: Swift.String
+  public static let centralDatabaseId: Swift.String
+  public static let sdkRuntimeGatewayFunctionId: Swift.String
+  public static let surveyRefreshInterval: Swift.Double
+  public static let announcementRefreshInterval: Swift.Double
+  public static let liveCardRefreshInterval: Swift.Double
+  public static let featureFlagRefreshInterval: Swift.Double
+  public static let sessionTimeout: Swift.Double
+  public static let flushInterval: Swift.Double
+  public static let surveyStatusPublished: Swift.String
+  public static let announcementStatusPublished: Swift.String
+  public static let liveCardStatusLive: Swift.String
+  public static let pushAnnouncementExtra: Swift.String
+  public static let pushThreadExtra: Swift.String
+  public static let pushTabExtra: Swift.String
+}
+public enum JSONValue : Swift.Codable, Swift.Equatable, Swift.Sendable {
+  case string(Swift.String)
+  case number(Swift.Double)
+  case bool(Swift.Bool)
+  case object([Swift.String : AppRainierSdk.JSONValue])
+  case array([AppRainierSdk.JSONValue])
+  case null
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public var stringValue: Swift.String? {
+    get
+  }
+  public var boolValue: Swift.Bool? {
+    get
+  }
+  public var doubleValue: Swift.Double? {
+    get
+  }
+  public var intValue: Swift.Int? {
+    get
+  }
+  public static func == (a: AppRainierSdk.JSONValue, b: AppRainierSdk.JSONValue) -> Swift.Bool
+}
+@_Concurrency.MainActor @preconcurrency public struct AnnouncementPresenterView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(sdk: AppRainierSdk.AppRainier = .shared, announcement: AppRainierSdk.AnnouncementBanner)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s13AppRainierSdk25AnnouncementPresenterViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct AppRainierOverlayHost<Content> : SwiftUICore.View where Content : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(sdk: AppRainierSdk.AppRainier = .shared, @SwiftUICore.ViewBuilder content: () -> Content)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s13AppRainierSdk0aB11OverlayHostV4bodyQrvp", 0) __<Content>
+}
+@_Concurrency.MainActor @preconcurrency public struct LiveCardPreviewView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(card: AppRainierSdk.LiveCard, trackingManager: AppRainierSdk.LiveCardManager? = nil, onTap: ((Swift.String?) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s13AppRainierSdk19LiveCardPreviewViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct MessageCenterView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(sdk: AppRainierSdk.AppRainier = .shared, onClose: (() -> Swift.Void)? = nil)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s13AppRainierSdk17MessageCenterViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct SurveyPresenterView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(sdk: AppRainierSdk.AppRainier = .shared, survey: AppRainierSdk.Survey)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s13AppRainierSdk19SurveyPresenterViewV4bodyQrvp", 0) __
+}
+extension AppRainierSdk.AppRainier : Swift.Sendable {}
+extension AppRainierSdk.Environment : Swift.Equatable {}
+extension AppRainierSdk.Environment : Swift.Hashable {}
+extension AppRainierSdk.Environment : Swift.RawRepresentable {}
+extension AppRainierSdk.AnnouncementManager : Swift.Sendable {}
+extension AppRainierSdk.EvaluationSource : Swift.Equatable {}
+extension AppRainierSdk.EvaluationSource : Swift.Hashable {}
+extension AppRainierSdk.LiveCardManager : Swift.Sendable {}
+extension AppRainierSdk.MessageManager : Swift.Sendable {}
+extension AppRainierSdk.SurveyManager : Swift.Sendable {}
+extension AppRainierSdk.AnnouncementPresenterView : Swift.Sendable {}
+extension AppRainierSdk.AppRainierOverlayHost : Swift.Sendable {}
+extension AppRainierSdk.LiveCardPreviewView : Swift.Sendable {}
+extension AppRainierSdk.MessageCenterView : Swift.Sendable {}
+extension AppRainierSdk.SurveyPresenterView : Swift.Sendable {}

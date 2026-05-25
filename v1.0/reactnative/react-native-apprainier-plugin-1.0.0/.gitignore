@@ -1,0 +1,29 @@
+# macOS / editor
+.DS_Store
+.idea/
+*.iml
+
+# JavaScript dependencies and package manager noise
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Android generated files
+android/.gradle/
+android/build/
+android/local.properties
+
+# iOS generated files
+ios/Pods/
+ios/build/
+ios/DerivedData/
+ios/.symlinks/
+ios/*.xcworkspace/xcuserdata/
+ios/*.xcodeproj/xcuserdata/
+ios/.xcode.env.local
+
+# Keep packaged SDK artifacts committed:
+# - android/libs/apprainier-sdk-release.aar
+# - ios/Frameworks/AppRainierSdk.xcframework
