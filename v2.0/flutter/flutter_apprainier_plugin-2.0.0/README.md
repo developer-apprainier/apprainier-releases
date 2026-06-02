@@ -15,11 +15,11 @@ This package is intended for client Flutter apps. It wraps the native AppRainier
 
 The plugin intentionally ships native SDK binaries:
 
-- Android local Maven artifact: `android/repo/com/apprainier/apprainier-android-sdk/1.0.0/`
+- Android local Maven artifact: `android/repo/com/apprainier/apprainier-android-sdk/2.0.0/`
 - Android AAR reference copy: `android/libs/apprainier-sdk-release.aar`
 - iOS XCFramework: `ios/Frameworks/AppRainierSdk.xcframework`
 
-The Android Gradle bridge resolves `com.apprainier:apprainier-android-sdk:1.0.0` from the bundled local Maven repo. When updating native SDKs, rebuild the native Android/iOS SDKs, refresh both the local Maven AAR and the reference AAR copy, then run the Flutter test app on Android and iOS.
+The Android Gradle bridge resolves `com.apprainier:apprainier-android-sdk:2.0.0` from the bundled local Maven repo. When updating native SDKs, rebuild the native Android/iOS SDKs, refresh both the local Maven AAR and the reference AAR copy, then run the Flutter test app on Android and iOS.
 
 ## Installation
 

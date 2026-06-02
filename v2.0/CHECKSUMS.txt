@@ -1,5 +1,5 @@
 bc0fc22c29fff2b9c8925112851eda7bf3436d5015759596c9f00ba709eb81d3  android/apprainier-android-sdk-2.0.0.zip
 90b672637f80a04931f025f31c2d808762bc39240fb81a25c113e407145eda0e  ios/AppRainierSdk-2.0.0.xcframework.zip
-d608f324ec2c05b21a175fa9aab1427524938ea93a1ae224fa82f419f0a66869  flutter/flutter_apprainier_plugin-2.0.0.zip
-e033425a34e828a2d295b4beb48d5dec30ab01d28b4c276fdeeed4394c9c5d6f  reactnative/react-native-apprainier-plugin-2.0.0.zip
-f08e4f212cc812ce9f17373182fa4b0d8bf16e20718c7d28db964af63aaee8a9  web/apprainier-web-sdk-2.0.0.zip
+d87b929497aeba60c03c4cf1ad68b13db927d26ba8e1599c3249b569879c844f  flutter/flutter_apprainier_plugin-2.0.0.zip
+b106bc53537188262be523aef9e66900514401fe3c9ecf5db41933f31bb44a15  reactnative/react-native-apprainier-plugin-2.0.0.zip
+3491baab7f8c481cb3538d69b5132eeb08f9331629de6ee57af64d6b6d194e62  web/apprainier-web-sdk-2.0.0.zip

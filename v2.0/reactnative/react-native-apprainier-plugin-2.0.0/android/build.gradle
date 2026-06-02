@@ -48,7 +48,7 @@ rootProject.allprojects {
 
 dependencies {
     implementation("com.facebook.react:react-android")
-    implementation("com.apprainier:apprainier-android-sdk:1.0.0")
+    implementation("com.apprainier:apprainier-android-sdk:2.0.0")
 
     implementation("io.appwrite:sdk-for-android:11.4.0")
     implementation("com.google.code.gson:gson:2.13.2")

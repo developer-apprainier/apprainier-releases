@@ -1,7 +1,8 @@
 ## 2.0.0
 
-* Refreshed Android and iOS native SDK binaries.
-* Added latest live card rendering updates, announcement icon handling, message center updates, and web/native parity fixes.
+* Updated bundled Android and iOS AppRainier native SDKs.
+* Added latest native resource bundle support for AppRainier iOS announcement and banner icons.
+* Aligned bundled Android local Maven SDK artifact with the Flutter package version.
 
 ## 1.0.0
 

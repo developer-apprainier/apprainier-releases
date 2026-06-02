@@ -98,7 +98,7 @@ Android apps can forward FCM payloads to these helpers. iOS apps can forward APN
 When the native SDKs change:
 
 1. Build the Android release AAR from `apprainier-android-sdk`.
-2. Copy it to `android/repo/com/apprainier/apprainier-android-sdk/1.0.0/apprainier-android-sdk-1.0.0.aar`.
+2. Copy it to `android/repo/com/apprainier/apprainier-android-sdk/2.0.0/apprainier-android-sdk-2.0.0.aar`.
 3. Also refresh the reference copy at `android/libs/apprainier-sdk-release.aar`.
 4. Build the iOS XCFramework from `apprainier-ios-sdk`.
 5. Copy it to `ios/Frameworks/AppRainierSdk.xcframework`.

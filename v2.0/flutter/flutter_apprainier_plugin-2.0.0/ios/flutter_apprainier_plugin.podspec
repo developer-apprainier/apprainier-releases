@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'flutter_apprainier_plugin'
-  s.version          = '1.0.0'
+  s.version          = '2.0.0'
   s.summary          = 'Flutter bridge for the AppRainier engagement SDK.'
   s.description      = <<-DESC
 Flutter bridge for AppRainier surveys, announcements, live cards, feature flags, experiments, and message center.
