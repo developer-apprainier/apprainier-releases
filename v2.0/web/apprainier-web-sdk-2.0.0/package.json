@@ -1,0 +1,30 @@
+{
+  "name": "@apprainier/web-sdk",
+  "version": "2.0.0",
+  "description": "Browser SDK for AppRainier engagement, surveys, live cards, feature flags, announcements, and message center.",
+  "type": "module",
+  "main": "./src/index.js",
+  "module": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.js",
+      "default": "./src/index.js"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "keywords": [
+    "apprainier",
+    "engagement",
+    "feature-flags",
+    "surveys",
+    "live-cards",
+    "message-center"
+  ],
+  "license": "MIT"
+}
