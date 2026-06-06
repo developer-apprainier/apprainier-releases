@@ -33,8 +33,13 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Keep release artifacts tracked intentionally.
+# Release folders should track uploadable artifacts and docs, not expanded bundles.
+v*/ios/*.xcframework/
+v*/flutter/flutter_apprainier_plugin-*/
+v*/reactnative/react-native-apprainier-plugin-*/
+v*/web/apprainier-web-sdk-*/
+
+# Keep packaged release artifacts tracked intentionally.
 !*.aar
 !*.zip
-!*.xcframework/
 !*.tgz
